@@ -1,0 +1,25 @@
+:root {
+  --Primary: rgb(35, 146, 141);
+  --Secondary: rgb(67, 158, 128);
+  --LightRed: salmon;
+  --Red: rgb(240, 45, 38);
+  --LightBlue: rgb(104, 207, 241);
+  --Blue: rgb(63, 114, 209);
+  --CadetBlue: rgb(34, 113, 145);
+  --LinkBlue: rgb(48, 130, 180);
+  --Green: rgb(7, 133, 122);
+  --LightGreen: rgb(191, 241, 237);
+  --DarkGreen: rgb(46, 93, 95);
+  --Yellow: rgb(243, 243, 116);
+  --Orange: rgb(250, 196, 96);
+  --Purple: rgb(201, 116, 201);
+  --LightPurple: rgb(224, 176, 224);
+  --White: rgb(255, 255, 255);
+  --Black: black;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}

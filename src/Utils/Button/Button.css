@@ -1,0 +1,222 @@
+.Button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: var(--White);
+}
+
+.normal {
+  padding: 1rem;
+  height: 2.5rem;
+  width: 7rem;
+}
+
+.small {
+  padding: 0.5rem;
+  height: 1.5rem;
+  font-size: 0.8rem;
+  width: 4rem;
+}
+
+.small:hover {
+  font-size: 0.82rem;
+}
+
+.medium {
+  padding: 0.8rem;
+  height: 1.7rem;
+  font-size: 0.9rem;
+  width: 5rem;
+}
+
+.medium:hover {
+  font-size: 0.92rem;
+}
+
+.horizontal {
+  margin-right: 1rem;
+}
+
+.vertical {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.vertical-small {
+  margin-bottom: 1rem;
+}
+
+.center {
+  margin: 16px auto;
+}
+
+.Button:hover {
+  cursor: pointer;
+  /* font-weight: bold; */
+  color: var(--White);
+}
+
+.primaryBg {
+  background-color: var(--Primary);
+}
+
+.secondaryBg {
+  background-color: var(--Secondary);
+}
+
+.lightRedBg {
+  background-color: var(--LightRed);
+}
+
+.redBg {
+  background-color: var(--Red);
+}
+
+.blueBg {
+  background-color: var(--Blue);
+}
+
+.cadetBg {
+  background-color: var(--CadetBlue);
+}
+
+.linkBlueBg {
+  background-color: var(--LinkBlue);
+}
+
+.greenBg {
+  background-color: var(--Green);
+}
+
+.darkGreenBg {
+  background-color: var(--DarkGreen);
+}
+
+.yellowBg {
+  background-color: var(--Yellow);
+}
+
+.orangeBg {
+  background-color: var(--Orange);
+}
+
+.purpleBg {
+  background-color: var(--Purple);
+}
+
+.whiteBg {
+  background-color: var(--White);
+}
+
+.blackBg {
+  background-color: var(--Black);
+}
+
+.primary {
+  border: 1px solid var(--Primary);
+  color: var(--Primary);
+}
+
+.secondary {
+  border: 1px solid var(--Secondary);
+  color: var(--Secondary);
+}
+
+.lightRed {
+  border: 1px solid var(--LightRed);
+  color: var(--LightRed);
+}
+
+.red {
+  border: 1px solid var(--Red);
+  color: var(--Red);
+}
+
+.lightblue {
+  border: 1px solid var(--LightBlue);
+  color: var(--LightBlue);
+}
+
+.blue {
+  border: 1px solid var(--Blue);
+  color: var(--Blue);
+}
+
+.cadetBlue {
+  border: 1px solid var(--CadetBlue);
+  color: var(--CadetBlue);
+}
+
+.linkBlue {
+  border: 1px solid var(--LinkBlue);
+  color: var(--LinkBlue);
+}
+
+.green {
+  border: 1px solid var(--Green);
+  color: var(--Green);
+}
+
+.darkGreen {
+  border: 1px solid var(--DarkGreen);
+  color: var(--DarkGreen);
+}
+
+.yellow {
+  border: 1px solid var(--Yellow);
+  color: var(--Yellow);
+}
+
+.orange {
+  border: 1px solid var(--Orange);
+  color: var(--Orange);
+}
+
+.purple {
+  border: 1px solid var(--Purple);
+  color: var(--Purple);
+}
+
+.white {
+  border: 1px solid var(--White);
+  color: var(--White);
+}
+
+.black {
+  border: 1px solid var(--Black);
+  color: var(--Black);
+}
+
+.bluehover:hover {
+  background-color: var(--Blue);
+  color: var(--White);
+}
+
+.cadethover:hover {
+  background-color: var(--CadetBlue);
+}
+
+.lightbluehover:hover {
+  background-color: var(--LightBlue);
+}
+
+.greenhover:hover {
+  background-color: var(--Green);
+}
+
+.yellowhover:hover {
+  background-color: var(--Yellow);
+}
+
+.redhover:hover {
+  background-color: var(--Red);
+}
+
+.orangehover:hover {
+  background-color: var(--Orange);
+}
+
+.purplehover:hover {
+  background-color: var(--Purple);
+}

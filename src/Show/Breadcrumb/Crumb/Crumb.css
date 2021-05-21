@@ -1,0 +1,22 @@
+.Crumb {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.Crumb a {
+  text-decoration: none;
+  /* color: rgb(25, 117, 238); */
+  color: rgb(17, 112, 236);
+}
+
+.Crumb a.NonActive {
+  color: rgb(112, 109, 109);
+  cursor: unset;
+}
+
+.Crumb span {
+  font-size: 1.1rem;
+  font-weight: bolder;
+  margin: 0 0.5rem;
+}

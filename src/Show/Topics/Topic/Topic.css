@@ -1,0 +1,64 @@
+.Topic {
+  --hoverColor: white;
+  --hoverbg: rgb(35, 146, 141);
+}
+
+.New {
+  --hoverColor: white;
+  --hoverbg: var(--LinkBlue);
+}
+
+.Topic {
+  width: 26%;
+  border: 1px solid black;
+  margin: 1rem 2rem;
+  padding: 16px;
+  box-sizing: border-box;
+  height: 3rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.New {
+  width: 26%;
+  border: 1px solid black;
+  margin: 1rem 2rem;
+  padding: 16px;
+  box-sizing: border-box;
+  height: 3rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--LinkBlue);
+}
+
+.Topic:hover {
+  cursor: pointer;
+  color: var(--hoverColor);
+  border: 1px solid var(--hoverColor);
+  background-color: var(--hoverbg);
+}
+
+.New:hover {
+  cursor: pointer;
+  color: var(--hoverColor);
+  border: 1px solid var(--hoverColor);
+  background-color: var(--hoverbg);
+}
+
+.Title {
+  display: flex;
+  align-items: center;
+}
+
+.Icon {
+  display: inline-block;
+  margin: 0 8px;
+  font-size: 1.5rem;
+  color: var(--Orange);
+}

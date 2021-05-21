@@ -1,0 +1,6 @@
+.Topics {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+  width: 100%;
+}

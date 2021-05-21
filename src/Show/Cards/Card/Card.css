@@ -1,0 +1,20 @@
+.Card {
+  width: 85%;
+  border: 1px solid black;
+  margin: 2.5rem 0;
+  box-sizing: border-box;
+  padding: 2rem;
+  box-shadow: 5px 5px 8px #b1afaf;
+  /* box-shadow: 5px 5px 8px var(--LightGreen); */
+  min-height: 6.3rem;
+}
+
+.Frag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Buttons {
+  margin-left: 1.7rem;
+}
