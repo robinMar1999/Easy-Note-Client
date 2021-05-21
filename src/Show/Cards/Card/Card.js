@@ -4,12 +4,20 @@ import Button from "../../../Utils/Button/Button";
 import { Helmet } from "react-helmet";
 
 class Card extends Component {
+  // componentDidMount() {
+  //   console.log("[Card.js] componentDidMount");
+  // }
+  // componentDidUpdate() {
+  //   console.log("[Card.js] componentDidUpdate");
+  // }
   render() {
+    // console.log("[Card.js] rendering...");
     return (
       <div className={classes.Frag}>
         <div
           className={classes.Card}
           dangerouslySetInnerHTML={{ __html: this.props.text }}
+          ref={(el) => (this.div = el)}
         ></div>
         <div className={classes.Buttons}>
           <Button
@@ -21,12 +29,6 @@ class Card extends Component {
             clas={["black", "vertical", "redhover", "normal"]}
           />
         </div>
-        <Helmet>
-          <script
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
-            defer
-          ></script>
-        </Helmet>
       </div>
     );
   }

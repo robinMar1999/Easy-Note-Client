@@ -4,7 +4,7 @@ import capitalize from "../../Utils/Capitalize/Capitalize";
 
 const Input = (props) => {
   let myInput = null;
-  if (props.type == "textarea") {
+  if (props.type === "textarea") {
     myInput = (
       <textarea
         name={props.name}

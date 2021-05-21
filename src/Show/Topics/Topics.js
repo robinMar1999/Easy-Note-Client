@@ -4,13 +4,17 @@ import classes from "./Topics.css";
 import Hr from "../../Utils/Hr/Hr";
 
 const Topics = (props) => {
-  if (!props.topics || props.topics.length === 0) {
-    return null;
+  let topics = [
+    <Topic url="/topic/new" key={0} title={"Create New Topic"} new />,
+  ];
+  if (props.topics) {
+    props.topics.forEach((topic) => {
+      topics.push(
+        <Topic url={`/${topic.id}`} key={topic.id} title={topic.title} />
+      );
+    });
   }
-  let topics = [<Topic key={0} title={"Create New Topic"} new />];
-  props.topics.forEach((topic) => {
-    topics.push(<Topic key={topic.id} title={topic.title} />);
-  });
+
   return (
     <Fragment>
       <div className={classes.Topics}>{topics}</div>

@@ -11,7 +11,7 @@ class Register extends Component {
         <Input name="name" type="text" />
         <Input name="email" type="email" />
         <Input name="password" type="password" />
-        <Button text="submit" clas={["cadetBg", "white", "center"]} />
+        <Button text="submit" clas={["cadetBg", "white", "center", "normal"]} />
         <span>
           Already have an account? <a href="/login">Login here</a>
         </span>

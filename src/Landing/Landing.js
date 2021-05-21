@@ -5,8 +5,14 @@ import Button from "../Utils/Button/Button";
 const Landing = () => {
   return (
     <div className={classes.Landing}>
-      <Button text="login" clas={["white", "horizontal", "cadethover"]} />
-      <Button text="register" clas={["white", "horizontal", "greenhover"]} />
+      <Button
+        text="login"
+        clas={["white", "horizontal", "cadethover", "normal"]}
+      />
+      <Button
+        text="register"
+        clas={["white", "horizontal", "greenhover", "normal"]}
+      />
     </div>
   );
 };

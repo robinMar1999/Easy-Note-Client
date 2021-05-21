@@ -10,7 +10,7 @@ class Login extends Component {
         <div className={classes.Heading}>Login</div>
         <Input name="email" type="email" />
         <Input name="password" type="password" />
-        <Button text="submit" clas={["cadetBg", "white", "center"]} />
+        <Button text="submit" clas={["cadetBg", "white", "center", "normal"]} />
         <span>
           Don't have an account? <a href="/register">Register here</a>
         </span>

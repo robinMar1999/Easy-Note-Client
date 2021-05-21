@@ -18,3 +18,8 @@
 .Buttons {
   margin-left: 1.7rem;
 }
+
+.Card pre {
+  background-color: var(--LightGreen);
+  padding: 1rem;
+}

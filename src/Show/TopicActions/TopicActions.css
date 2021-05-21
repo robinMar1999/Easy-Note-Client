@@ -27,3 +27,35 @@
   background-color: var(--LinkBlue);
   color: var(--White);
 }
+
+.New {
+  width: 7rem;
+  height: 6rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-right: none;
+  box-sizing: border-box;
+  position: fixed;
+  font-size: 1rem;
+  top: 30%;
+  right: 0rem;
+  /* box-shadow: 5px 5px 8px var(--LightGreen); */
+  color: var(--White);
+  background-color: var(--Purple);
+  z-index: 200;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+.New:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.Icon {
+  font-size: 2em;
+}

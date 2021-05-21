@@ -11,10 +11,12 @@ const Breadcrumb = (props) => {
       const crumb = props.crumbs[i];
       if (i === props.crumbs.length - 1) {
         crumbs.push(
-          <Crumb key={crumb.id} id={crumb.id} title={crumb.title} nonactive />
+          <Crumb key={crumb.id} url={crumb.url} title={crumb.title} nonactive />
         );
       } else {
-        crumbs.push(<Crumb key={crumb.id} id={crumb.id} title={crumb.title} />);
+        crumbs.push(
+          <Crumb key={crumb.id} url={crumb.url} title={crumb.title} />
+        );
       }
     }
   }

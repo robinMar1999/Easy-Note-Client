@@ -12,6 +12,10 @@
   width: 7rem;
 }
 
+.normal:hover {
+  font-weight: bold;
+}
+
 .small {
   padding: 0.5rem;
   height: 1.5rem;
