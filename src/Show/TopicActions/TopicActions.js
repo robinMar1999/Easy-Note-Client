@@ -24,7 +24,7 @@ const TopicActions = (props) => {
           />
         </div>
       </div>
-      <Link to="card/new">
+      <Link to={`/${props.id}/card/new`}>
         <div className={classes.New}>
           <span className={classes.Icon}>
             {/* <i class="bi bi-plus"></i> */}

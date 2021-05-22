@@ -9,30 +9,46 @@ import isEqual from "lodash.isequal";
 
 class Show extends Component {
   state = {
+    id: null,
     topicContent: null,
     loading: true,
     error: false,
+    msg: null,
   };
 
-  AreEqual = (obj1, obj2) => {
-    let ans = true;
-    for (let key in obj1) {
+  static getDerivedStateFromProps(props, state) {
+    if (state.id !== props.id) {
+      return {
+        id: props.id,
+        loading: true,
+        error: false,
+        msg: null,
+      };
+    } else {
+      return state;
     }
-  };
+  }
 
   componentDidMount() {
+    // console.log(this.props);
     // console.log("[Show.js] componentDidMount");
     let url = "/topic";
     if (this.props.id) {
       url = url + "/" + this.props.id;
     }
-    axios
-      .get(url)
+    axios({
+      url: url,
+      method: "get",
+      headers: {
+        Authorization: this.props.token,
+      },
+    })
       .then((response) => {
         this.setState({
           topicContent: response.data,
           loading: false,
           error: false,
+          msg: null,
         });
       })
       .catch((err) => {
@@ -40,6 +56,7 @@ class Show extends Component {
           topicContent: null,
           loading: false,
           error: true,
+          msg: err.response.data.errors[0].msg,
         });
       });
     window.MathJax.typeset();
@@ -50,22 +67,30 @@ class Show extends Component {
     if (this.props.id) {
       url = url + "/" + this.props.id;
     }
-    axios
-      .get(url)
+    axios({
+      url: url,
+      method: "get",
+      headers: {
+        Authorization: this.props.token,
+      },
+    })
       .then((response) => {
         if (!isEqual(response.data, this.state.topicContent)) {
           this.setState({
             topicContent: response.data,
             loading: false,
             error: false,
+            msg: null,
           });
         }
       })
       .catch((err) => {
+        console.log(err.data);
         this.setState({
           topicContent: null,
           loading: false,
           error: true,
+          msg: err.response.data.errors[0].msg,
         });
       });
     window.MathJax.typeset();
@@ -129,12 +154,12 @@ class Show extends Component {
       </div>
     ) : this.state.error ? (
       <div className={classes.Error}>
-        <h1>Something went wrong!</h1>
+        <h1>{this.state.msg}</h1>
       </div>
     ) : (
       <div className={classes.Show}>
         <Breadcrumb crumbs={crumbs} />
-        <TopicActions />
+        {this.props.id ? <TopicActions id={this.props.id} /> : null}
         <Topics topics={topics} />
         <Cards cards={cards} />
       </div>

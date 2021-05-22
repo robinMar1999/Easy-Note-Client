@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import classes from "./Card.css";
 import Button from "../../../Utils/Button/Button";
-import { Helmet } from "react-helmet";
 
 class Card extends Component {
   // componentDidMount() {

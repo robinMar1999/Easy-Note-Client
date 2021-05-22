@@ -5,6 +5,7 @@ import Button from "../../Utils/Button/Button";
 
 class CardForm extends Component {
   render() {
+    console.log(this.props);
     return (
       <div className={classes.CardForm}>
         <div className={classes.Heading}>{this.props.heading}</div>

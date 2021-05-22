@@ -24,3 +24,13 @@
 .Register span a {
   color: var(--LinkBlue);
 }
+
+.Error {
+  text-align: center;
+  color: var(--Red);
+}
+
+.Loading {
+  text-align: center;
+  color: var(--CadetBlue);
+}
