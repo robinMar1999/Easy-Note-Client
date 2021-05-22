@@ -29,6 +29,40 @@ class Show extends Component {
     }
   }
 
+  updateState = () => {
+    let url = "/topic";
+    if (this.props.id) {
+      url = url + "/" + this.props.id;
+    }
+    axios({
+      url: url,
+      method: "get",
+      headers: {
+        Authorization: this.props.token,
+      },
+    })
+      .then((response) => {
+        if (!isEqual(response.data, this.state.topicContent)) {
+          this.setState({
+            topicContent: response.data,
+            loading: false,
+            error: false,
+            msg: null,
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err.data);
+        this.setState({
+          topicContent: null,
+          loading: false,
+          error: true,
+          msg: err.response.data.errors[0].msg,
+        });
+      });
+    window.MathJax.typeset();
+  };
+
   componentDidMount() {
     // console.log(this.props);
     // console.log("[Show.js] componentDidMount");
@@ -63,42 +97,12 @@ class Show extends Component {
   }
   componentDidUpdate() {
     // console.log("[Show.js] componentDidUpdate");
-    let url = "/topic";
-    if (this.props.id) {
-      url = url + "/" + this.props.id;
-    }
-    axios({
-      url: url,
-      method: "get",
-      headers: {
-        Authorization: this.props.token,
-      },
-    })
-      .then((response) => {
-        if (!isEqual(response.data, this.state.topicContent)) {
-          this.setState({
-            topicContent: response.data,
-            loading: false,
-            error: false,
-            msg: null,
-          });
-        }
-      })
-      .catch((err) => {
-        console.log(err.data);
-        this.setState({
-          topicContent: null,
-          loading: false,
-          error: true,
-          msg: err.response.data.errors[0].msg,
-        });
-      });
-    window.MathJax.typeset();
+    this.updateState();
   }
   setCrumbs() {
     let crumbs = [
       {
-        id: "0",
+        id: null,
         url: "/",
         title: "Topics",
       },
@@ -159,9 +163,22 @@ class Show extends Component {
     ) : (
       <div className={classes.Show}>
         <Breadcrumb crumbs={crumbs} />
-        {this.props.id ? <TopicActions id={this.props.id} /> : null}
-        <Topics topics={topics} />
-        <Cards cards={cards} />
+        {this.props.id &&
+        this.state.topicContent &&
+        this.state.topicContent.topic ? (
+          <TopicActions
+            id={this.props.id}
+            del={crumbs[crumbs.length - 2].id}
+            token={this.props.token}
+          />
+        ) : null}
+        <Topics id={this.props.id} topics={topics} />
+        <Cards
+          topicId={this.props.id}
+          cards={cards}
+          deleted={this.updateState}
+          token={this.props.token}
+        />
       </div>
     );
   }

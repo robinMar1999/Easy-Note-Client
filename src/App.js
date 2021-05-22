@@ -70,30 +70,22 @@ class App extends Component {
       <div className={classes.App}>
         <Navbar clicked={this.Logout} />
         <Switch>
-          {!this.state.isLoggedIn ? (
-            <Route
-              path="/login"
-              component={(props) => (
-                <Login {...props} submitted={this.UpdateLoginStatus} />
-              )}
-            />
-          ) : null}
-          {!this.state.isLoggedIn ? (
-            <Route
-              path="/register"
-              component={(props) => (
-                <Register {...props} submitted={this.UpdateLoginStatus} />
-              )}
-            />
-          ) : null}
-
-          {this.state.isLoggedIn ? <Redirect from="/login" to="/" /> : null}
-
-          {this.state.isLoggedIn ? <Redirect from="/register" to="/" /> : null}
+          <Route
+            path="/login"
+            component={(props) => (
+              <Login {...props} submitted={this.UpdateLoginStatus} />
+            )}
+          />
+          <Route
+            path="/register"
+            component={(props) => (
+              <Register {...props} submitted={this.UpdateLoginStatus} />
+            )}
+          />
 
           {this.state.isLoggedIn ? (
             <Route
-              path="/:id/topic/new"
+              path="/:id/edit"
               exact
               component={(props) => (
                 <TopicForm
@@ -104,13 +96,14 @@ class App extends Component {
               )}
             />
           ) : null}
+
           {this.state.isLoggedIn ? (
             <Route
-              path="/:id/card/new"
+              path="/:id/topic/new"
               exact
               component={(props) => (
-                <CardForm
-                  type="new"
+                <TopicForm
+                  new
                   id={props.match.params.id}
                   {...props}
                   token={this.state.finalToken}
@@ -120,7 +113,50 @@ class App extends Component {
           ) : null}
           {this.state.isLoggedIn ? (
             <Route
+              path="/topic/new"
+              exact
+              component={(props) => (
+                <TopicForm
+                  new
+                  id={null}
+                  {...props}
+                  token={this.state.finalToken}
+                />
+              )}
+            />
+          ) : null}
+          {this.state.isLoggedIn ? (
+            <Route
+              path="/:topicId/card/new"
+              exact
+              component={(props) => (
+                <CardForm
+                  new
+                  topicId={props.match.params.topicId}
+                  {...props}
+                  token={this.state.finalToken}
+                />
+              )}
+            />
+          ) : null}
+          {this.state.isLoggedIn ? (
+            <Route
+              path="/:topicId/card/:cardId/edit"
+              exact
+              component={(props) => (
+                <CardForm
+                  topicId={props.match.params.topicId}
+                  cardId={props.match.params.cardId}
+                  {...props}
+                  token={this.state.finalToken}
+                />
+              )}
+            />
+          ) : null}
+          {this.state.isLoggedIn ? (
+            <Route
               path="/:id"
+              exact
               component={(props) => (
                 <Show
                   id={props.match.params.id}
@@ -131,8 +167,6 @@ class App extends Component {
             />
           ) : null}
           <Route path="/" exact component={root} />
-
-          <Redirect to="/" />
         </Switch>
       </div>
     );

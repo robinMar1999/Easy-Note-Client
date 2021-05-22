@@ -13,7 +13,16 @@ class Cards extends Component {
     // console.log("[Cards.js] rendering...");
     let cards = [];
     this.props.cards.forEach((card) => {
-      cards.push(<Card key={card.id} text={card.text} />);
+      cards.push(
+        <Card
+          topicId={this.props.topicId}
+          cardId={card.id}
+          key={card.id}
+          text={card.text}
+          deleted={this.props.deleted}
+          token={this.props.token}
+        />
+      );
     });
     return <div className={classes.Cards}>{cards}</div>;
   }
