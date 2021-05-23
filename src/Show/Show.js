@@ -76,9 +76,17 @@ class Show extends Component {
   };
 
   componentDidMount() {
+    const cardLinks = document.querySelectorAll(".Card__Card__SISFN a");
+    cardLinks.forEach((cardLink) => {
+      cardLink.setAttribute("target", "_blank");
+    });
     this.updateState();
   }
   componentDidUpdate() {
+    const cardLinks = document.querySelectorAll(".Card__Card__SISFN a");
+    cardLinks.forEach((cardLink) => {
+      cardLink.setAttribute("target", "_blank");
+    });
     this.updateState();
   }
   setCrumbs() {
