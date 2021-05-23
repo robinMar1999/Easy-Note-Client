@@ -30,6 +30,9 @@ class Show extends Component {
   }
 
   updateState = () => {
+    if (this.state.error) {
+      return;
+    }
     let url = "/topic";
     if (this.props.id) {
       url = url + "/" + this.props.id;
@@ -52,51 +55,30 @@ class Show extends Component {
         }
       })
       .catch((err) => {
-        console.log(err.data);
-        this.setState({
-          topicContent: null,
-          loading: false,
-          error: true,
-          msg: err.response.data.errors[0].msg,
-        });
+        if (err.response && err.response.data && err.response.data.errors) {
+          this.setState({
+            topicContent: null,
+            loading: false,
+            error: true,
+            msg: err.response.data.errors[0].msg,
+          });
+        } else {
+          this.setState({
+            topicContent: null,
+            loading: false,
+            error: true,
+            msg:
+              err.message === "Network Error" ? "Server Is Down" : err.message,
+          });
+        }
       });
     window.MathJax.typeset();
   };
 
   componentDidMount() {
-    // console.log(this.props);
-    // console.log("[Show.js] componentDidMount");
-    let url = "/topic";
-    if (this.props.id) {
-      url = url + "/" + this.props.id;
-    }
-    axios({
-      url: url,
-      method: "get",
-      headers: {
-        Authorization: this.props.token,
-      },
-    })
-      .then((response) => {
-        this.setState({
-          topicContent: response.data,
-          loading: false,
-          error: false,
-          msg: null,
-        });
-      })
-      .catch((err) => {
-        this.setState({
-          topicContent: null,
-          loading: false,
-          error: true,
-          msg: err.response.data.errors[0].msg,
-        });
-      });
-    window.MathJax.typeset();
+    this.updateState();
   }
   componentDidUpdate() {
-    // console.log("[Show.js] componentDidUpdate");
     this.updateState();
   }
   setCrumbs() {

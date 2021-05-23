@@ -167,6 +167,7 @@ class App extends Component {
             />
           ) : null}
           <Route path="/" exact component={root} />
+          <Redirect to="/" />
         </Switch>
       </div>
     );

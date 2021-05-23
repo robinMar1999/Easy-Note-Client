@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 import Topic from "./Topic/Topic";
 import classes from "./Topics.css";
 import Hr from "../../Utils/Hr/Hr";
-import { Link } from "react-router-dom";
 
 class Topics extends Component {
   render() {

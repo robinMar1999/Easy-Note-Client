@@ -57,6 +57,14 @@ class TopicForm extends Component {
     });
   };
 
+  onCancelHandler = () => {
+    let pathname = "/";
+    if (this.props.id) {
+      pathname = pathname + this.props.id;
+    }
+    this.props.history.replace({ pathname: pathname });
+  };
+
   onSubmitHandler = () => {
     this.setState({
       loading: true,
@@ -84,7 +92,6 @@ class TopicForm extends Component {
       },
     })
       .then((res) => {
-        console.log(res.data);
         this.setState({
           error: false,
           msg: null,
@@ -120,11 +127,18 @@ class TopicForm extends Component {
           value={this.state.title}
           changed={this.onChangeHandler}
         />
-        <Button
-          text="submit"
-          clas={["cadetBg", "white", "center", "normal"]}
-          clicked={this.onSubmitHandler}
-        />
+        <div className={classes.Buttons}>
+          <Button
+            text="submit"
+            clas={["cadetBg", "white", "vertical", "horizontal", "normal"]}
+            clicked={this.onSubmitHandler}
+          />
+          <Button
+            text="cancel"
+            clas={["redBg", "white", "vertical", "horizontal", "normal"]}
+            clicked={this.onCancelHandler}
+          />
+        </div>
       </div>
     );
   }
