@@ -35,7 +35,7 @@ axios.interceptors.response.use(
 );
 
 const app = (
-  <BrowserRouter>
+  <BrowserRouter basename="/easy-note-app/">
     <App />
   </BrowserRouter>
 );
