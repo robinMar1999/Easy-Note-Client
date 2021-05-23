@@ -6,8 +6,8 @@ import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:5000/api";
-// axios.defaults.baseURL = "https://robin-easy-note-server.herokuapp.com/api";
+// axios.defaults.baseURL = "http://localhost:5000/api";
+axios.defaults.baseURL = "https://robin-easy-note-server.herokuapp.com/api";
 // axios.defaults.headers.Authorization =
 // "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGE2NTZkNTM0YzkyYzJhODBjNWY1OTciLCJpYXQiOjE2MjE2MDQyNTZ9.zQ_0YAXzgF710bgA49ciT_zpPGAbVsECwuQvG7pmGO4";
 axios.defaults.headers.post["Content-Type"] = "application/json";
