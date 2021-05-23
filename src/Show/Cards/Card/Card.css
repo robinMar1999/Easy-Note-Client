@@ -23,15 +23,3 @@
   background-color: var(--LightGreen);
   padding: 1rem;
 }
-
-.Card img {
-  width: 70%;
-  display: block;
-  border: 1px solid black;
-  /* border-radius: 0.1rem; */
-  padding: 0.5rem;
-}
-
-.Card a {
-  color: var(--Blue);
-}
