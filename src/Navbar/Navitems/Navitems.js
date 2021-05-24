@@ -15,7 +15,7 @@ const Navitems = (props) => {
       <NavLink activeClassName={classes.myActive} to="/about">
         <Navitem title="About" />
       </NavLink>
-      <Navitem title="Logout" {...props} />
+      {props.isLoggedIn && <Navitem title="Logout" {...props} />}
     </div>
   );
 };

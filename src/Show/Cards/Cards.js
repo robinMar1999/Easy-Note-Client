@@ -19,6 +19,7 @@ class Cards extends Component {
           cardId={card.id}
           key={card.id}
           text={card.text}
+          viewText={card.viewText}
           deleted={this.props.deleted}
           token={this.props.token}
         />

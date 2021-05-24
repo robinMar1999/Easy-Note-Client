@@ -1,4 +1,59 @@
 .About {
   margin: 6rem auto;
-  width: 80%;
+  border: 1px solid black;
+  box-sizing: border-box;
+  padding: 2rem auto;
+  border-radius: 1rem;
+  min-height: 80vh;
+  width: 60%;
+  text-align: center;
+}
+
+.About img {
+  display: block;
+  border-radius: 60%;
+  border: 1px solid black;
+  /* padding: 0.3rem; */
+  width: 20rem;
+  margin: 1rem auto;
+}
+
+.About a {
+  color: var(--Blue);
+}
+
+.Heading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.Icons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Icons a {
+  margin: 0.5rem 0.5rem;
+}
+
+.Icon {
+  font-size: 2rem;
+}
+
+.Instagram {
+  color: #c13584;
+}
+
+.Facebook {
+  color: var(--Blue);
+}
+
+.Youtube {
+  color: var(--Red);
+}
+
+.Linkedin {
+  color: var(--CadetBlue);
 }

@@ -136,7 +136,10 @@ class CardForm extends Component {
           <Backdrop clicked={this.hidePreview} />
         ) : null}
         {this.state.showModal ? (
-          <Modal content={this.state.sanitizedText} />
+          <Modal
+            content={this.state.sanitizedText}
+            clicked={this.hidePreview}
+          />
         ) : null}
         {this.state.loading ? (
           <Message clas="Loading" msg={this.state.loadingMsg} />

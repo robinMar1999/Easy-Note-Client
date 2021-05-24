@@ -6,10 +6,36 @@
   height: 90vh;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px black;
-  padding: 16px;
-  overflow-y: scroll;
+  padding: 2rem;
+  padding-top: 2rem;
+  overflow-y: auto;
   left: 15%;
   top: 2rem;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
+}
+
+.Modal::-webkit-scrollbar {
+  width: 1.2rem;
+}
+
+.Modal::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.Modal::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.Cross {
+  position: absolute;
+  top: 0rem;
+  right: 1rem;
+  font-size: 1.3rem;
+}
+
+.Cross:hover {
+  cursor: pointer;
 }

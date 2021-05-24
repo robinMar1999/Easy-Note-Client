@@ -6,10 +6,12 @@ class Modal extends Component {
   }
   render() {
     return (
-      <div
-        className={classes.Modal}
-        dangerouslySetInnerHTML={{ __html: this.props.content }}
-      ></div>
+      <div className={classes.Modal}>
+        <div dangerouslySetInnerHTML={{ __html: this.props.content }}></div>
+        <div className={classes.Cross} onClick={this.props.clicked}>
+          <i className="bi bi-x-circle-fill"></i>
+        </div>
+      </div>
     );
   }
 }

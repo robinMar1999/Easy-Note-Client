@@ -1,15 +1,28 @@
 import React, { Component, Fragment } from "react";
 import classes from "./Card.css";
 import Button from "../../../Utils/Button/Button";
+import Backdrop from "../../../Utils/Backdrop/Backdrop";
+import Modal from "../../../Utils/Modal/Modal";
 import { Link } from "react-router-dom";
+// import Pdf from "react-to-pdf";
 import axios from "axios";
+
+// const options = {
+//   orientation: "landscape",
+//   unit: "in",
+//   format: "a4",
+// };
 
 class Card extends Component {
   state = {
     showMsg: false,
     error: false,
     msg: "",
+    view: false,
   };
+  componentDidMount() {
+    this.ref = React.createRef();
+  }
   deleteHandler = () => {
     this.setState({
       error: false,
@@ -40,9 +53,24 @@ class Card extends Component {
         }
       });
   };
+
+  openView = () => {
+    this.setState({
+      view: true,
+    });
+  };
+  closeView = () => {
+    this.setState({
+      view: false,
+    });
+  };
   render() {
     return (
       <Fragment>
+        {this.state.view && <Backdrop clicked={this.closeView} />}
+        {this.state.view && (
+          <Modal content={this.props.text} clicked={this.closeView} />
+        )}
         {this.state.showMsg && (
           <div
             className={[
@@ -57,7 +85,7 @@ class Card extends Component {
           <div
             className={classes.Card}
             dangerouslySetInnerHTML={{ __html: this.props.text }}
-            ref={(el) => (this.div = el)}
+            ref={this.ref}
           ></div>
           <div className={classes.Buttons}>
             <Link to={`/${this.props.topicId}/card/${this.props.cardId}/edit`}>
@@ -66,10 +94,13 @@ class Card extends Component {
                 clas={["black", "vertical-small", "purplehover", "medium"]}
               />
             </Link>
+
             <Button
-              text="PDF"
-              clas={["black", "vertical-small", "purplehover", "medium"]}
+              text="view"
+              clas={["black", "vertical-small", "greenhover", "medium"]}
+              clicked={this.openView}
             />
+
             <Button
               text="delete"
               clas={["black", "vertical-small", "redhover", "medium"]}

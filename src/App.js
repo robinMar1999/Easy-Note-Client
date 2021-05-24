@@ -70,22 +70,30 @@ class App extends Component {
     }
     return (
       <div className={classes.App}>
-        <Navbar clicked={this.Logout} />
+        <Navbar isLoggedIn={this.state.isLoggedIn} clicked={this.Logout} />
         <Switch>
           <Route path="/help" component={Help} />
           <Route path="/about" component={About} />
-          <Route
-            path="/login"
-            component={(props) => (
-              <Login {...props} submitted={this.UpdateLoginStatus} />
-            )}
-          />
-          <Route
-            path="/register"
-            component={(props) => (
-              <Register {...props} submitted={this.UpdateLoginStatus} />
-            )}
-          />
+          {!this.state.isLoggedIn ? (
+            <Route
+              path="/login"
+              component={(props) => (
+                <Login {...props} submitted={this.UpdateLoginStatus} />
+              )}
+            />
+          ) : (
+            <Redirect from="/login" to="/" />
+          )}
+          {!this.state.isLoggedIn ? (
+            <Route
+              path="/register"
+              component={(props) => (
+                <Register {...props} submitted={this.UpdateLoginStatus} />
+              )}
+            />
+          ) : (
+            <Redirect from="/register" to="/" />
+          )}
 
           {this.state.isLoggedIn ? (
             <Route

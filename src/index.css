@@ -31,7 +31,7 @@ body {
   background-color: aqua;
 } */
 
-a.active div {
-  background-color: var(--DarkGreen);
-  color: white;
+.noscroll {
+  position: fixed;
+  overflow-y: scroll;
 }

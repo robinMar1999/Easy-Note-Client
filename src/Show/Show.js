@@ -138,6 +138,7 @@ class Show extends Component {
         cards.push({
           id: card._id,
           text: card.sanitizedText,
+          viewText: card.text,
         });
       });
     }
