@@ -7,8 +7,7 @@
   box-shadow: 5px 5px 8px #b1afaf;
   /* box-shadow: 5px 5px 8px var(--LightGreen); */
   min-height: 6.3rem;
-  max-height: 15rem;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .Card::-webkit-scrollbar {
