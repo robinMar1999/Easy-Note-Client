@@ -1,0 +1,29 @@
+.Confirm {
+  position: fixed;
+  z-index: 500;
+  background-color: white;
+  width: 30vw;
+  height: 30vh;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px black;
+  padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  overflow-y: auto;
+  left: 35%;
+  top: 20%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+}
+
+.Heading {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.Buttons {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

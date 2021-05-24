@@ -1,20 +1,18 @@
 import React, { Component, Fragment } from "react";
 import classes from "./TopicActions.css";
 import Button from "../../Utils/Button/Button";
+import Backdrop from "../../Utils/Backdrop/Backdrop";
 import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
+import Confirm from "../../Utils/Confirm/Confirm";
 class TopicActions extends Component {
   state = {
     deleting: false,
     msg: "",
     error: false,
+    confirm: false,
   };
   deleteHandler = () => {
-    this.setState({
-      deleting: true,
-      msg: "Deleting...",
-      error: false,
-    });
     axios({
       url: `/topic/${this.props.id}`,
       method: "delete",
@@ -45,6 +43,25 @@ class TopicActions extends Component {
         }
       });
   };
+  openConfirm = () => {
+    this.setState({
+      confirm: true,
+    });
+  };
+  closeConfirm = () => {
+    this.setState({
+      confirm: false,
+    });
+  };
+  closeConfirmAndDelete = () => {
+    this.setState({
+      confirm: false,
+      deleting: true,
+      msg: "Deleting...",
+      error: false,
+    });
+    this.deleteHandler();
+  };
   render() {
     return (
       <Fragment>
@@ -59,6 +76,14 @@ class TopicActions extends Component {
             {this.state.msg}
           </div>
         ) : null}
+        {this.state.confirm && <Backdrop clicked={this.closeConfirm} />}
+        {this.state.confirm && (
+          <Confirm
+            cancelled={this.closeConfirm}
+            submitted={this.closeConfirmAndDelete}
+            topicDelete
+          />
+        )}
 
         <div className={classes.Main}>
           <div className={classes.Heading}>Actions for Current Topic</div>
@@ -78,7 +103,7 @@ class TopicActions extends Component {
             <Button
               text="delete"
               clas={["redhover", "black", "medium", "whiteBg"]}
-              clicked={this.deleteHandler}
+              clicked={this.openConfirm}
             />
           </div>
         </div>

@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import classes from "./Card.css";
 import Button from "../../../Utils/Button/Button";
 import Backdrop from "../../../Utils/Backdrop/Backdrop";
+import Confirm from "../../../Utils/Confirm/Confirm";
 import Modal from "../../../Utils/Modal/Modal";
 import { Link } from "react-router-dom";
 // import Pdf from "react-to-pdf";
@@ -19,16 +20,12 @@ class Card extends Component {
     error: false,
     msg: "",
     view: false,
+    confirm: false,
   };
   componentDidMount() {
     this.ref = React.createRef();
   }
   deleteHandler = () => {
-    this.setState({
-      error: false,
-      showMsg: true,
-      msg: "Deleting...",
-    });
     axios({
       url: `/card/${this.props.cardId}`,
       method: "delete",
@@ -54,6 +51,26 @@ class Card extends Component {
       });
   };
 
+  openConfirm = () => {
+    this.setState({
+      confirm: true,
+    });
+  };
+  closeConfirm = () => {
+    this.setState({
+      confirm: false,
+    });
+  };
+  closeConfirmAndDelete = () => {
+    this.setState({
+      confirm: false,
+      error: false,
+      showMsg: true,
+      msg: "Deleting...",
+    });
+    this.deleteHandler();
+  };
+
   openView = () => {
     this.setState({
       view: true,
@@ -70,6 +87,13 @@ class Card extends Component {
         {this.state.view && <Backdrop clicked={this.closeView} />}
         {this.state.view && (
           <Modal content={this.props.text} clicked={this.closeView} />
+        )}
+        {this.state.confirm && <Backdrop clicked={this.closeConfirm} />}
+        {this.state.confirm && (
+          <Confirm
+            cancelled={this.closeConfirm}
+            submitted={this.closeConfirmAndDelete}
+          />
         )}
         {this.state.showMsg && (
           <div
@@ -104,7 +128,7 @@ class Card extends Component {
             <Button
               text="delete"
               clas={["black", "vertical-small", "redhover", "medium"]}
-              clicked={this.deleteHandler}
+              clicked={this.openConfirm}
             />
           </div>
         </div>
