@@ -8,6 +8,8 @@ import Register from "./Forms/Register/Register";
 import Show from "./Show/Show";
 import TopicForm from "./Forms/TopicForm/TopicForm";
 import CardForm from "./Forms/CardForm/CardForm";
+import About from "./About/About";
+import Help from "./Help/Help";
 
 class App extends Component {
   state = {
@@ -70,6 +72,8 @@ class App extends Component {
       <div className={classes.App}>
         <Navbar clicked={this.Logout} />
         <Switch>
+          <Route path="/help" component={Help} />
+          <Route path="/about" component={About} />
           <Route
             path="/login"
             component={(props) => (

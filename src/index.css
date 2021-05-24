@@ -16,6 +16,8 @@
   --LightPurple: rgb(224, 176, 224);
   --White: rgb(255, 255, 255);
   --Black: black;
+  --Preview: rgb(58, 128, 0);
+  --NewCard: rgb(95, 169, 238);
 }
 
 body {
@@ -28,3 +30,8 @@ body {
   width: 1rem;
   background-color: aqua;
 } */
+
+a.active div {
+  background-color: var(--DarkGreen);
+  color: white;
+}

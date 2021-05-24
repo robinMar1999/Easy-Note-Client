@@ -8,6 +8,25 @@
   z-index: 200;
 }
 
+.Message {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 400;
+  left: 0;
+  top: 4rem;
+  font-size: 1.3rem;
+}
+
+.Loading {
+  color: var(--CadetBlue);
+}
+
+.Error {
+  color: var(--Red);
+}
+
 .TopicActions {
   border: 1px solid black;
   border-left: none;
@@ -32,28 +51,29 @@
   width: 7rem;
   height: 6rem;
   border: 1px solid black;
+  border-right: none;
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
   justify-content: center;
-  border-right: none;
   box-sizing: border-box;
   position: fixed;
   font-size: 1rem;
-  top: 30%;
+  top: 38%;
   right: 0rem;
   /* box-shadow: 5px 5px 8px var(--LightGreen); */
   color: var(--White);
-  background-color: var(--Purple);
+  background-color: var(--NewCard);
   z-index: 200;
-  border-bottom-left-radius: 1rem;
-  border-top-left-radius: 1rem;
+  /* border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem; */
 }
 
 .New:hover {
   cursor: pointer;
   font-weight: bold;
+  font-size: 1.03rem;
 }
 
 .Icon {

@@ -4,11 +4,10 @@
   display: flex;
   align-items: center;
   padding: 1rem;
-  /* color: rgb(212, 208, 208); */
+  /* color: #b2f1cf; */
 }
 
 .Navitem:hover {
-  background-color: var(--DarkGreen);
   cursor: pointer;
   color: white;
 }

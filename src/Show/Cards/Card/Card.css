@@ -24,6 +24,10 @@
   padding: 1rem;
 }
 
+.Card code {
+  background-color: var(--LightGreen);
+}
+
 .Card a {
   color: var(--Blue);
 }
@@ -33,4 +37,17 @@
   border: 1px solid black;
   border-radius: 0.1rem;
   padding: 0.5rem;
+}
+
+.Message {
+  width: 85%;
+  text-align: center;
+}
+
+.Loading {
+  color: var(--CadetBlue);
+}
+
+.Error {
+  color: var(--Red);
 }

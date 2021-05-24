@@ -1,0 +1,20 @@
+.Help {
+  margin: 6rem auto;
+  border: 1px solid black;
+  box-sizing: border-box;
+  padding: 2rem;
+  border-radius: 1rem;
+  min-height: 80vh;
+  width: 60%;
+}
+
+.Help a {
+  color: var(--Blue);
+}
+
+.Heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+}

@@ -6,6 +6,7 @@ import Breadcrumb from "./Breadcrumb/Breadcrumb";
 import TopicActions from "./TopicActions/TopicActions";
 import axios from "axios";
 import isEqual from "lodash.isequal";
+import { animateScroll as scroll } from "react-scroll";
 
 class Show extends Component {
   state = {
@@ -14,6 +15,7 @@ class Show extends Component {
     loading: true,
     error: false,
     msg: null,
+    visibility: false,
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -75,13 +77,30 @@ class Show extends Component {
     window.MathJax.typeset();
   };
 
+  toggleVisibility = () => {
+    if (window.scrollY > 0 && !this.state.visibility) {
+      this.setState({
+        visibility: true,
+      });
+    } else if (window.scrollY === 0) {
+      this.setState({
+        visibility: false,
+      });
+    }
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.toggleVisibility);
+  }
+
   componentDidMount() {
     this.updateState();
+    window.addEventListener("scroll", this.toggleVisibility);
   }
   componentDidUpdate() {
     this.updateState();
   }
-  setCrumbs() {
+  setCrumbs = () => {
     let crumbs = [
       {
         id: null,
@@ -99,8 +118,8 @@ class Show extends Component {
       });
     }
     return crumbs;
-  }
-  setTopics() {
+  };
+  setTopics = () => {
     let topics = [];
     if (this.state.topicContent && this.state.topicContent.topics) {
       this.state.topicContent.topics.forEach((topic) => {
@@ -111,8 +130,8 @@ class Show extends Component {
       });
     }
     return topics;
-  }
-  setCards() {
+  };
+  setCards = () => {
     let cards = [];
     if (this.state.topicContent && this.state.topicContent.cards) {
       this.state.topicContent.cards.forEach((card) => {
@@ -123,7 +142,19 @@ class Show extends Component {
       });
     }
     return cards;
-  }
+  };
+
+  getDuration = () => {
+    return Math.floor(Math.floor(window.scrollY) * 0.4);
+  };
+
+  scrollToTop = () => {
+    scroll.scrollToTop({
+      duration: this.getDuration(),
+      delay: 100,
+      smooth: true,
+    });
+  };
   render() {
     // console.log("[Show.js] rendering...");
     let crumbs = this.setCrumbs();
@@ -161,6 +192,17 @@ class Show extends Component {
           deleted={this.updateState}
           token={this.props.token}
         />
+        {this.state.id && (
+          <div
+            className={[
+              classes.Top,
+              !this.state.visibility ? classes.Gray : null,
+            ].join(" ")}
+            onClick={this.scrollToTop}
+          >
+            <i className="bi bi-arrow-up-circle"></i>
+          </div>
+        )}
       </div>
     );
   }

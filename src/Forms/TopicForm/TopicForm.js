@@ -20,7 +20,7 @@ class TopicForm extends Component {
     }
     this.setState({
       error: false,
-      msg: null,
+      msg: this.props.new ? null : "Loading...",
       loading: true,
     });
     let url = "/topic";
@@ -69,7 +69,7 @@ class TopicForm extends Component {
     this.setState({
       loading: true,
       error: false,
-      msg: null,
+      msg: this.props.new ? "Adding..." : "Updating...",
     });
     let url = "/topic";
     if (this.props.id) {
@@ -115,7 +115,9 @@ class TopicForm extends Component {
   render() {
     return (
       <div className={classes.TopicForm}>
-        {this.state.loading ? <Message clas="Loading" msg="Adding..." /> : null}
+        {this.state.loading ? (
+          <Message clas="Loading" msg={this.state.msg} />
+        ) : null}
         {this.state.error ? (
           <Message clas="Error" msg={this.state.msg} />
         ) : null}
@@ -129,14 +131,14 @@ class TopicForm extends Component {
         />
         <div className={classes.Buttons}>
           <Button
-            text="submit"
-            clas={["cadetBg", "white", "vertical", "horizontal", "normal"]}
-            clicked={this.onSubmitHandler}
-          />
-          <Button
             text="cancel"
             clas={["redBg", "white", "vertical", "horizontal", "normal"]}
             clicked={this.onCancelHandler}
+          />
+          <Button
+            text="submit"
+            clas={["cadetBg", "white", "vertical", "horizontal", "normal"]}
+            clicked={this.onSubmitHandler}
           />
         </div>
       </div>
