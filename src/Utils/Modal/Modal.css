@@ -7,12 +7,16 @@
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px black;
   padding: 2rem;
-  padding-top: 2rem;
+  padding-top: 2.1rem;
   overflow-y: auto;
   left: 15%;
   top: 2rem;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
+}
+
+.Modal a {
+  color: var(--Blue);
 }
 
 .Modal::-webkit-scrollbar {
@@ -31,8 +35,8 @@
 
 .Cross {
   position: absolute;
-  top: 0rem;
-  right: 1rem;
+  top: 0.1rem;
+  right: 0.5rem;
   font-size: 1.3rem;
 }
 
